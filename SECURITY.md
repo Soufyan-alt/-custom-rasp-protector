@@ -4,7 +4,7 @@ This security document outlines the technical nature of Runtime Execution vulner
 
 ---
 
-## 🛑 1. Vulnerability Analysis: Post-Perimeter Exploitation & Blind Signatures (ما هي الثغرة؟)
+## 🛑 1. Vulnerability Analysis: Post-Perimeter Exploitation & Blind Signatures  
 
 ### The Architectural Problem
 Traditional perimeter networks rely on Web Application Firewalls (WAF) to block web-based attacks like Remote Code Execution (RCE) and Web Shell injections. However, WAFs operate strictly at the network layer. If a threat actor obfuscates, encrypts, or nests the payload inside a logical application flow, the perimeter firewall passes the traffic as legitimate.
@@ -14,7 +14,7 @@ Once the obfuscated input reaches the internal web server, the application layer
 
 ---
 
-## 🔍 2. Automated Detection: Deep Runtime Telemetry (كيف تم اكتشافها آلياً؟)
+## 🔍 2. Automated Detection: Deep Runtime Telemetry 
 
 To eliminate dependency on network signature matching, this architecture shifts security telemetry directly into the **Execution Runtime** and **OS Kernel Layers**:
 
@@ -24,7 +24,7 @@ To eliminate dependency on network signature matching, this architecture shifts 
 
 ---
 
-## 🛠️ 3. Root Remediation: Programmatic Self-Defense & Process Termination (كيف تم إصلاحها؟)
+## 🛠️ 3. Root Remediation: Programmatic Self-Defense & Process Termination 
 
 The vulnerability was neutralized by implementing active **Self-Healing and Isolation Playbooks** directly inside the software execution flow:
 
