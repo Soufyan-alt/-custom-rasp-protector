@@ -1,0 +1,13 @@
+- rule: RASP Web Shell Execution Detected
+  desc: Detects an unauthorized shell spawning from a web server process execution context.
+  condition: >
+    proc.pname in (httpd, apache, nginx, node, python) and proc.name in (sh, bash, csh, zsh)
+  output: "🚨 RASP ALERT: Web Shell Spawned! (user=%user.name proc=%proc.name parent=%proc.pname cmdline=%proc.cmdline)"
+  priority: CRITICAL
+
+- rule: RASP Sensitive File Unauthorized Access
+  desc: Detects unauthorized runtime reading of sensitive system structures.
+  condition: >
+    evt.type = open and fd.name in (/etc/passwd, /etc/shadow) and proc.name in (python, node, php)
+  output: "🚨 RASP ALERT: Unauthorized read attempt on sensitive file! (user=%user.name file=%fd.name proc=%proc.name)"
+  priority: CRITICAL
